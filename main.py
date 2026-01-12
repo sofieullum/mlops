@@ -26,7 +26,7 @@ def train(lr: float = 1e-3, batch_size: int = 32, epochs: int = 10) -> None:
         model.train()
         for i, (images, labels) in enumerate(train_dataloader):
             optimizer.zero_grad()
-            
+
             y_pred = model(images)
             loss = criterion(y_pred, labels)
             loss.backward()
@@ -40,7 +40,7 @@ def train(lr: float = 1e-3, batch_size: int = 32, epochs: int = 10) -> None:
 
             if i % 100 == 0:
                 print(f"Epoch {epoch}, iter {i}, loss: {loss.item()}")
-    
+
     print("Done training")
     torch.save(model.state_dict(), "model.pth")
 
@@ -51,7 +51,7 @@ def train(lr: float = 1e-3, batch_size: int = 32, epochs: int = 10) -> None:
     ax[1].set_title("Training accuracy")
     fig.savefig("training_stats.png")
 
-            
+
 
 
 
@@ -72,16 +72,16 @@ def evaluate(model_checkpoint: str) -> None:
 
     correct, total = 0, 0
 
-    
+
     for images, labels in test_dataloader:
         y_pred = model(images)
         correct += (y_pred.argmax(dim = 1) == labels).float().sum().item()
 
         total += labels.size(0)
 
-    accuracy = correct/total   
+    accuracy = correct/total
 
-    print(f"The test accuracy is {accuracy}")      
+    print(f"The test accuracy is {accuracy}")
 
 
 if __name__ == "__main__":

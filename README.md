@@ -30,7 +30,7 @@ The directory structure of the project looks like this:
 │   │   ├── __init__.py
 │   │   ├── api.py
 │   │   ├── data.py           # Process data - uvx invoke preprocess-data
-│   │   ├── evaluate.py       
+│   │   ├── evaluate.py
 │   │   ├── models.py
 │   │   ├── train.py          # Train the model - uvx invoke train
 │   │   └── visualize.py

@@ -14,7 +14,7 @@ class MyAwesomeModel(nn.Module):
         self.dropout = nn.Dropout(p=0.5)
 
         self.fc1 = nn.Linear(128,10)
-    
+
     def forward(self, x):
         x = torch.relu(self.conv1(x))
         x = torch.max_pool2d(x, 2,2)
@@ -30,7 +30,7 @@ class MyAwesomeModel(nn.Module):
         x = self.fc1(x)
 
         return x
-    
+
 if __name__ == "__main__":
     model = MyAwesomeModel()
     print(f"Model architecture: {model}")

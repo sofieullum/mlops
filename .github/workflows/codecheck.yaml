@@ -1,4 +1,4 @@
-name: "Run tests"
+name: "Code check"
 
 on:
   push:
@@ -26,8 +26,16 @@ jobs:
 
     - name: Install dependencies
       run: |
+        uv add --dev ruff
+        uv add --dev mypy
         uv sync --dev --locked
 
-    - name: Test with pytest
-      run: |
-        uv run pytest -v
+    - name: Ruff check
+      run: uv run ruff check .
+
+    - name: Ruff format
+      run: uv run ruff format .
+    
+
+    - name: Run mypy
+      run: uv run mypy

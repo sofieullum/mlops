@@ -9,7 +9,7 @@ def test_train():
 
     with initialize_config_dir(version_base=None, config_dir=config_path):
         cfg = compose(config_name="config", overrides=["epochs=2"])
-        
+
         # Import here to avoid Hydra initialization issues
         from src.mlops_project.train import train
         train(cfg)
