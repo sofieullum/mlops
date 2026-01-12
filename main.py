@@ -1,8 +1,9 @@
+import matplotlib.pyplot as plt
 import torch
 import typer
 from data_solution import corrupt_mnist
+
 from model import MyAwesomeModel
-import matplotlib.pyplot as plt
 
 app = typer.Typer()
 

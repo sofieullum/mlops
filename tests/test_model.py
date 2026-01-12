@@ -1,6 +1,8 @@
 import pytest
 import torch
+
 from src.mlops_project.model import Model
+
 
 @pytest.mark.parametrize("batch_size", [32, 64])
 def test_model(batch_size: int) -> None:

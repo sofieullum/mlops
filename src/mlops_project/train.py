@@ -1,12 +1,12 @@
+from pathlib import Path
+
 import hydra
 import matplotlib.pyplot as plt
 import torch
-import typer
+from omegaconf import DictConfig
 
 from src.mlops_project.data import corrupt_mnist
 from src.mlops_project.model import Model
-from omegaconf import DictConfig
-from pathlib import Path
 
 
 @hydra.main(version_base = None, config_path="../../configs", config_name="config")

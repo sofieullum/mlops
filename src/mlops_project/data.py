@@ -41,11 +41,11 @@ def preprocess(raw_dir: str, proccesed_dir: str):
 
 def corrupt_mnist():
     """Loads the preprocessed images"""
-    PATH = "data/processed"
-    train_images = torch.load(f"{PATH}/train_images.pt")
-    train_target = torch.load(f"{PATH}/train_target.pt")
-    test_images = torch.load(f"{PATH}/test_images.pt")
-    test_target = torch.load(f"{PATH}/test_target.pt")
+    path = "data/processed"
+    train_images = torch.load(f"{path}/train_images.pt")
+    train_target = torch.load(f"{path}/train_target.pt")
+    test_images = torch.load(f"{path}/test_images.pt")
+    test_target = torch.load(f"{path}/test_target.pt")
 
     train_set = torch.utils.data.TensorDataset(train_images, train_target)
     test_set = torch.utils.data.TensorDataset(test_images, test_target)

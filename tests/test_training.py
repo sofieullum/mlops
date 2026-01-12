@@ -1,7 +1,7 @@
-from hydra import initialize_config_dir,compose
-from omegaconf import OmegaConf
 import os
-from src.mlops_project.train import train
+
+from hydra import compose, initialize_config_dir
+
 
 def test_train():
     # Get absolute path to configs
