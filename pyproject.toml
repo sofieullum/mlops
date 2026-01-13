@@ -78,6 +78,5 @@ line-length = 130
 omit = ["tests/*"]
 
 [tool.mypy]
-mypy_path = "src"
+files = ["src/mlops_project"]
 explicit_package_bases = true
-namespace_packages = true

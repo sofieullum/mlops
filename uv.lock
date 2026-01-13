@@ -1197,7 +1197,7 @@ wheels = [
 ]
 
 [[package]]
-name = "mlops-project"
+name = "mlops"
 version = "0.0.1"
 source = { editable = "." }
 dependencies = [
