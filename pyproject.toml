@@ -76,3 +76,8 @@ line-length = 130
 
 [tool.coverage.run]
 omit = ["tests/*"]
+
+[tool.mypy]
+mypy_path = "src"
+explicit_package_bases = true
+namespace_packages = true
