@@ -42,6 +42,7 @@ dependencies = [
     "ruff>=0.14.5",
     "sympy>=1.13.1",
     "hydra-core>=1.3.2",
+    "scikit-learn>=1.8.0",
 ]
 
 [dependency-groups]
@@ -54,6 +55,7 @@ dev = [
     "mkdocstrings-python==1.12.2",
     "ruff>=0.14.10",
     "mypy>=1.19.1",
+    "types-torch>=0.1.1",
 ]
 
 
