@@ -6,10 +6,10 @@ import torch
 from src.mlops_project.data import corrupt_mnist
 
 
-@pytest.mark.skipif(not os.path.exists("data/processed/train_images.pt"), reason="Training images not found")
-@pytest.mark.skipif(not os.path.exists("data/processed/train_target.pt"), reason="Training targets not found")
-@pytest.mark.skipif(not os.path.exists("data/processed/test_images.pt"), reason="Test images not found")
-@pytest.mark.skipif(not os.path.exists("data/processed/test_target.pt"), reason="Test targets not found")
+@pytest.mark.skipif(not os.path.exists("data_/processed/train_images.pt"), reason="Training images not found")
+@pytest.mark.skipif(not os.path.exists("data_/processed/train_target.pt"), reason="Training targets not found")
+@pytest.mark.skipif(not os.path.exists("data_/processed/test_images.pt"), reason="Test images not found")
+@pytest.mark.skipif(not os.path.exists("data_/processed/test_target.pt"), reason="Test targets not found")
 def test_my_dataset():
     """Test the MyDataset class."""
     train, test = corrupt_mnist()

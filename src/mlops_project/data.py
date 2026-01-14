@@ -1,6 +1,7 @@
 
 import torch
 import typer
+from typing import List
 
 
 def normalize(images: torch.Tensor) -> torch.Tensor:
@@ -8,33 +9,28 @@ def normalize(images: torch.Tensor) -> torch.Tensor:
     return (images - images.mean()) / images.std()
 
 
-def preprocess(raw_dir: str, proccesed_dir: str):
-    """Preprocesses the images, so they are normalized"""
-
-    train_images = []
-    train_target = []
+def preprocess(raw_dir: str, proccesed_dir: str) -> None:
+    train_images: List[torch.Tensor] = []
+    train_target: List[torch.Tensor] = []
 
     for i in range(6):
         train_images.append(torch.load(f"{raw_dir}/train_images_{i}.pt", weights_only=True))
         train_target.append(torch.load(f"{raw_dir}/train_target_{i}.pt", weights_only=True))
 
-    train_images = torch.cat(train_images)
-    train_target = torch.cat(train_target)
+    train_images_t = torch.cat(train_images)
+    train_target_t = torch.cat(train_target)
 
     test_images = torch.load(f"{raw_dir}/test_images.pt", weights_only=True)
     test_target = torch.load(f"{raw_dir}/test_target.pt", weights_only=True)
 
-    train_images = train_images.unsqueeze(1).float()
-    test_images = test_images.unsqueeze(1).float()
+    train_images_t = normalize(train_images_t.unsqueeze(1).float())
+    test_images = normalize(test_images.unsqueeze(1).float())
 
-    train_images = normalize(train_images)
-    test_images = normalize(test_images)
-
-    train_target = train_target.long()
+    train_target_t = train_target_t.long()
     test_target = test_target.long()
 
-    torch.save(train_images, f"{proccesed_dir}/train_images.pt")
-    torch.save(train_target, f"{proccesed_dir}/train_target.pt")
+    torch.save(train_images_t, f"{proccesed_dir}/train_images.pt")
+    torch.save(train_target_t, f"{proccesed_dir}/train_target.pt")
     torch.save(test_images, f"{proccesed_dir}/test_images.pt")
     torch.save(test_target, f"{proccesed_dir}/test_target.pt")
 
